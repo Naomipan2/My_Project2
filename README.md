@@ -1,6 +1,7 @@
 # My_Project2
 My Project for Sprint4
-https://app1.py.onrender.com/
+https://my-project2-1cvw.onrender.com
+
 This project is about running an app locally. First, we will need to install a stream in our system to build an app. I'm using VS code to do all the Python coding scripts. Then, type "streamlet run app1.py" in the terminal to see whether the app is working or not. 
 
 Second, I need to have a file for the requirements to run the code and a folder "config.toml" to be able to connect the streamlit. 
