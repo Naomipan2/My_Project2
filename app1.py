@@ -95,7 +95,7 @@ fig1.update_layout(
 st.plotly_chart(fig1, use_container_width=True)
 
 
-#Compare price distibution between manufacturers
+#Compare price distribution between manufacturers
 st.header('Compare price distibution between manufacturers')
 manufacturer_1 = st.selectbox("Select manufacturer 1", df['brand'].unique())
 manufacturer_2 = st.selectbox("Select manufacturer 2", df['brand'].unique())
