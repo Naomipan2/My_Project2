@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 
 
 st.header('Car Sales Advertisements \n Data viewer')
-st.write('Include manufacturers with less than 1000 ads')
+ads = st.checkbox("Include manufacturers with less than 1000 ads")
+
 
 
 
@@ -16,10 +17,11 @@ df = pd.read_csv('vehicles_us.csv')
 #Data Correction
 df['date_posted'] = pd.to_datetime(df['date_posted'], format ='%Y-%m-%d')
 df.isnull().sum()
-df.fillna(0,inplace=True)
+df['is_4wd'] = df['is_4wd'].fillna(0)
+df['paint_color'] = df['paint_color'].fillna('Unknown')
+df[['model_year', 'odometer']] = df[['model_year', 'odometer']].fillna(df[['model_year', 'odometer']].median())
 df.drop_duplicates(inplace=True)
 df['model_year'] = df['model_year'].astype(int)
-
 #Data Enrichment 
 df[['brand', 'model_type']] = df['model'].str.extract(r'(\w+)\s+(.+)')
 
