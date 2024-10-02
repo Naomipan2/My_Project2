@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 
 
 st.header('Car Sales Advertisements \n Data viewer')
-ads = st.checkbox("Include manufacturers with less than 1000 ads")
-
 
 
 
