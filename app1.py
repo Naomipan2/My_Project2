@@ -19,9 +19,13 @@ df['date_posted'] = pd.to_datetime(df['date_posted'], format ='%Y-%m-%d')
 df.isnull().sum()
 df['is_4wd'] = df['is_4wd'].fillna(0)
 df['paint_color'] = df['paint_color'].fillna('Unknown')
-df[['model_year', 'odometer']] = df[['model_year', 'odometer']].fillna(df[['model_year', 'odometer']].median())
+df['model_year'] = df['model_year'].fillna(df.groupby(['model'])['model_year'].transform('median'))
+df['odometer'] = df['odometer'].fillna(df.groupby(['model'])['odometer'].transform('median'))
+df['cylinders'] = df['cylinders'].fillna(df.groupby(['model'])['cylinders'].transform('median'))
 df.drop_duplicates(inplace=True)
 df['model_year'] = df['model_year'].astype(int)
+
+
 #Data Enrichment 
 df[['brand', 'model_type']] = df['model'].str.extract(r'(\w+)\s+(.+)')
 
